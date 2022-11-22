@@ -2,9 +2,11 @@ import Link from "next/link"
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from "../utils/firebase"
 
+
 export default function nav() {
 
     const [user, loading] = useAuthState(auth)
+
 
     return (
         <nav className="flex justify-between items-center py-10">
@@ -18,9 +20,10 @@ export default function nav() {
                     </Link>
                 )}
                 {user && (
-                    <div>
+                    <div >
                         <Link href={"/dashboard"}>
-                            <img src={user.photoURL} />
+
+                            <img className="rounded-full w-12" src={user.photoURL} alt="avatar" referrerPolicy="no-referrer" />
                         </Link>
                     </div>
                 )}
